@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Map</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #eaf6ff;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1b2a49;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 85%;
+            max-width: 900px;
+            border: 3px solid #1b2a49;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        area {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Interactive Area Map 🗺️</h1>
+
+    <!-- 🔹 Image Map -->
+    <img src="{% static 'images/mymap.png' %}" usemap="#image-map" alt="My Area Map">
+
+    <map name="image-map">
+        <area alt="Park" title="Park" href="{% url 'park' %}" coords="569,157,620,190" shape="rect">
+        <area alt="School" title="School" href="{% url 'school' %}" coords="969,40,1020,90" shape="rect">
+        <area alt="Church" title="Church" href="{% url 'church' %}" coords="1029,191,1080,240" shape="rect">
+        <area alt="Turf" title="Turf" href="{% url 'turf' %}" coords="7,497,60,550" shape="rect">
+        <area alt="Apartments" title="Apartments" href="{% url 'apartments' %}" coords="179,200,240,260" shape="rect">
+    </map>
+
+    <p>Click on any location to explore!</p>
+</body>
+</html>
